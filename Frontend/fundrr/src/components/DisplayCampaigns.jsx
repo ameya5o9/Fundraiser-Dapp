@@ -40,11 +40,17 @@ const DisplayCampaigns = ({title, isLoading, campaigns}) => {
 export default DisplayCampaigns
 
 const Wrapper = styled.div`
-
+color: #1c1c1cce;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 12px;
 margin-left : 60px;
 padding: 20px 30px;
-background-color: #1b1b1bf6;
 
+h1{
+  margin-left: 20px;
+  letter-spacing: 0.2px;
+
+}
 .box1{
   display: flex;
 

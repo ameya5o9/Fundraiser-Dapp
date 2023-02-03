@@ -7,7 +7,7 @@ const CustomButton = ({handleClick, title, btnType}) => {
   return (
     <Wrapper>
       <button onClick={handleClick} type={btnType}>
-      {title}
+      {title}  
       
     </button>
     </Wrapper>
@@ -21,7 +21,7 @@ const Wrapper = styled.div`
 display: flex;
 
   button{
-    background-color:blueviolet;
+    background-color: #008000a8;
     border-style: none;
     border-radius: 5px;
     color: white;
@@ -29,5 +29,7 @@ display: flex;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 500;
     letter-spacing: 0.2px;
+    padding: 10px 15px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   }
 `

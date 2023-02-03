@@ -12,7 +12,8 @@ import menu from './menu.svg';
 import money from './money.svg';
 import loader from './loader.svg';
 import thirdweb from './thirdweb.png';
-
+import main from './main.png'
+import user from './user.png'
 export {
   tagType,
   createCampaign,
@@ -28,4 +29,6 @@ export {
   money,
   loader,
   thirdweb,
+  main,
+  user,
 };

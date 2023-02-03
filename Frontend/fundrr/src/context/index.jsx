@@ -13,7 +13,7 @@ const StateContext = createContext();
 export const StateContextProvider = ({ children }) => {
     const { contract } = useContract('0xF110bb17533B800F83b5153E758E3b8FebD89A1F');
     const { mutateAsync: createCampaign } = useContractWrite(contract, 'createCampaign');
-const address = useAddress();
+const address = useAddress(); 
 const connect = useMetamask();
     const publishCampaign = async (form) => {
         try {

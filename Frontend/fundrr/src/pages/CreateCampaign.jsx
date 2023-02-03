@@ -48,13 +48,14 @@ const CreateCampaign = () => {
 
   return (
     <Wrapper>
+      
+
+      <form onSubmit={handleSubmit}>
+        <Box2>
       <div className="box1">
         <h1>Create a Campaign
         </h1>
       </div>
-
-      <form onSubmit={handleSubmit}>
-        <Box2>
           <FormField className='field'
           labelName="Your Name "
           placeholder="John Doe"
@@ -125,20 +126,26 @@ display: flex;
 justify-content: center;
 align-items: center;
 flex-direction: column;
-background-color: #373737;
-
+margin-top: 50px;
 h1{
-  color: #ffffffb9;
+  color: #1e1e1e;
   font-family: Arial, Helvetica, sans-serif;
 }
 
+
+.box1{
+  border-style: none;
+  border-radius: 5px;
+
+  padding: 0px 70px;
+}
 `
 
 const Box2 = styled.div`
   display: flex;
   flex-direction: column;
   padding: 20px 50px;
-  background-color: #000000b4;
+  background-color: #ecececb4;
   border-style: none;
   border-radius: 7px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;

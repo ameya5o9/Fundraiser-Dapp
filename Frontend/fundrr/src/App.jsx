@@ -1,5 +1,5 @@
 import { ConnectWallet } from "@thirdweb-dev/react";
-import "./styles/Home.css";
+import "./index.css";
 import {Routes, Route} from 'react-router-dom'
 import { Sidebar, Navbar } from './components';
 import CampaignDetail from "./pages/CampaignDetail";

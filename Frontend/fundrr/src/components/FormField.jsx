@@ -15,6 +15,7 @@ const FormField = ({ labelName, placeholder, inputType, isTextArea, value, handl
           onChange={handleChange}
           rows={10}
           placeholder={placeholder}
+          className="textarea"
         />
       ) : (
         <input className='input'
@@ -41,7 +42,7 @@ const Wrapper = styled.div`
     font-family: Arial, Helvetica, sans-serif;
     letter-spacing: 0.6px;
     font-weight: bold;
-    color: #ffffffd2;
+    color: #1a1a1aad;
     
 }    
 

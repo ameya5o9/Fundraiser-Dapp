@@ -51,7 +51,8 @@ const Sidebar = () => {
 
 export default Sidebar
 const Wrapper =styled.div`
-  background-color: black;
+  /* background-color: black; */
+  background-color: #ffffff;
   display: flex;
   flex-direction: column;
   position : absolute;
@@ -61,6 +62,7 @@ const Wrapper =styled.div`
   height: 109vh;
   justify-content: center;
   align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 
   .iconDiv{
     display: flex;
@@ -73,13 +75,16 @@ const Wrapper =styled.div`
   }
 
   .iconDiv:hover{
-    background-color: #fffaf1;
+    background-color: #d2d2d2;
     animation-duration: 2000ms;
+  }
+  .iconDiv:target{
+    background-color: purple;outline:0;
   }
 
   .box1{
     display: flex;
-    background-color: #1b1b1b;
+    background-color: #ffffff;
     border-style: none;
     border-radius: 10px;
 
