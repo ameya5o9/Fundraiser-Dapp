@@ -2,13 +2,33 @@ import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
 import { copy } from '../assets';
 import { useStateContext } from '../context';
-
+import { ethers } from 'ethers';
+import { useBalance } from '@thirdweb-dev/react';
  
 
 
 const Profile = () => {
-  const { connect, address } = useStateContext();
+  const { balance, address } = useStateContext();
   const [show, setShow] = useState(false)
+  const [bal, setBal] =useState("0")
+  
+
+  useEffect(() => {
+    async function fetchBalance() {
+      if (window.ethereum) {
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        await window.ethereum.request({ method: 'eth_requestAccounts' });
+        const signer = provider.getSigner();
+        const balanceWei = await signer.getBalance();
+        const balanceEth = ethers.utils.formatEther(balanceWei);
+        setBal(balanceEth);
+      } else {
+        console.log('Please install MetaMask!');
+      }
+    }
+
+    fetchBalance();
+  }, []);
 
 
 
@@ -34,7 +54,7 @@ const Profile = () => {
         <div className="user">
           <div className="account">Account</div>
           <div className="address" onClick={handleCopy}>  
-                    
+          {/* {text ? (`${address}` ) : ("Connect Wallet")}   ;        */}
           {text.length > 5 ? `${text.slice(0, 6)}...${text.slice(-2)}` : text}
           <img src={copy} alt="" id='copy'/> 
           {show && (<div className='copy'>Copied</div>)}
@@ -44,7 +64,8 @@ const Profile = () => {
         </div>
 
         <div className="balance">
-          Wallet Balance-
+          <div className='h'>Wallet Balance</div>
+          {bal ? (<div className='number'>{parseFloat(bal).toFixed(4)} ETH</div>):(<div>Loading</div>)}
         </div>
         
 
@@ -67,7 +88,7 @@ display:flex;
 flex-direction: column;
 align-items: center;
 background-color: #d6d6d6;
-height: 500px;
+height: 330px;
 margin: 50px 200px 0px 200px;
 width: 1000px;
 
@@ -103,10 +124,23 @@ width: 1000px;
   background-color: #ffffff;
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  font-weight: bold;
   
 }
 
+.h{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+.number{
+  font-size: 40px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
 #copy{
   width: 10px;
   height: 10px;
