@@ -5,6 +5,7 @@ import { loader } from "../assets";
 import FundCard from './FundCard';
 const DisplayCampaigns = ({title, isLoading, campaigns}) => {
     const navigate = useNavigate();
+    // console.log({campaigns})
 
     const handleNavigate =(campaign)=>{
         navigate(`/campaign-details/${campaign.title}`, { state: campaign })
@@ -22,7 +23,7 @@ const DisplayCampaigns = ({title, isLoading, campaigns}) => {
 
       {!isLoading && campaigns.length === 0 && (
         <p className="description">
-          no campaign bfvfhjrbsv
+          no campaign 
         </p>
       )}
 
@@ -31,7 +32,7 @@ const DisplayCampaigns = ({title, isLoading, campaigns}) => {
         key={campaign.id}
         {...campaign}
         handleClick={() => handleNavigate(campaign)}
-      />)}
+      />)} 
     </div>
   </Wrapper>
   )
@@ -43,8 +44,9 @@ const Wrapper = styled.div`
 color: #1c1c1cce;
 font-family: Arial, Helvetica, sans-serif;
 font-size: 12px;
-margin-left : 60px;
+margin-left : 100px;
 padding: 20px 30px;
+
 
 h1{
   margin-left: 20px;
@@ -53,6 +55,7 @@ h1{
 }
 .box1{
   display: flex;
-
+  
+  flex-wrap: wrap;
 }
 `

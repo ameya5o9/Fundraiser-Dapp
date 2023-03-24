@@ -3,10 +3,10 @@ import styled from 'styled-components'
 const CountBox = ({ title, value }) => {
   return (
     <Wrapper>
-    <div className="box1">
+   
       <h4 className="">{value}</h4>
       <p className="">{title}</p>
-    </div>
+   
     </Wrapper>
   )
 }
@@ -14,11 +14,11 @@ const CountBox = ({ title, value }) => {
 export default CountBox
 
 const Wrapper = styled.div`
-.box1{
+
 border-style: none;
 border-radius: 5px;
 box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-}
+
 h4{
   display: flex;
   justify-content: center;

@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { ethers } from 'ethers';
 import styled from 'styled-components';
 import { useStateContext } from '../context';
-import { CountBox, CustomButton, Loader } from '../components';
+import { CountBox, CustomButton, Loader, Sidebar, Navbar } from '../components';
 import { calculateBarPercentage, daysLeft } from '../utils';
 import { user } from '../assets';
 
@@ -38,6 +38,9 @@ const CampaignDetails = () => {
   }
 
   return (
+    <div>
+      <Sidebar/>
+      <Navbar/>
     <Wrapper>
       {isLoading && <Loader />}
 
@@ -55,11 +58,10 @@ const CampaignDetails = () => {
           <CountBox title={`Raised of ${state.target}`} value={state.amountCollected} />
           <CountBox title="Total Backers" value={donators.length} />
           <div className="subbox1">
-          <h4 className="">DONATE</h4>   
 
               <input 
                 type="number"
-                placeholder="ETH 0.1"
+                placeholder="Enter amount"
                 step="0.01"
                 className="input"
                 value={amount}
@@ -70,7 +72,7 @@ const CampaignDetails = () => {
 
               <CustomButton 
                 btnType="button"
-                title="Fund Campaign"
+                title="Donate"
                 styles="w-full bg-[#8c6dfd]"
                 handleClick={handleDonate}
               />
@@ -120,6 +122,7 @@ const CampaignDetails = () => {
                 </div>
       </div>
     </Wrapper>
+    </div>
   )
 }
 
@@ -129,8 +132,7 @@ const Wrapper = styled.div`
 font-family: Arial, Helvetica, sans-serif;
 border-style: none;
 border-radius: 5px; 
-box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
- 
+margin-top : 50px;
 .container{
   display: flex;
   justify-content: space-evenly;

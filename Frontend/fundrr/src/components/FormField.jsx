@@ -48,7 +48,7 @@ const Wrapper = styled.div`
 
 .input{
     outline: none;
-    background-color: #ffffffc2;
+    background-color: #eeeeeec2;
     border-style: none;
     border-radius: 5px;
     width: 100%;
@@ -59,5 +59,7 @@ const Wrapper = styled.div`
 
 span{
 
+  
 }
+
 `

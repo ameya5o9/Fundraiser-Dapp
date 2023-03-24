@@ -1,5 +1,5 @@
 import React from 'react'
-import { DisplayCampaigns } from '../components';
+import { DisplayCampaigns, Navbar, Sidebar } from '../components';
 import { useStateContext } from '../context'
 import { useEffect, useState } from "react";
 const Home = () => {
@@ -17,11 +17,14 @@ const Home = () => {
             if(contract) fetchCampaigns();
           }, [address, contract]);
   return (
+    <div>
+    <Sidebar/>
+    <Navbar/>
     <DisplayCampaigns 
     title="All Campaigns"
     isLoading={isLoading}
     campaigns={campaigns}
-  />
+  /></div>
   )
 }
 

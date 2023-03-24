@@ -5,21 +5,30 @@ import { logo, search, user, loader } from '../assets';
 import { navlinks } from '../constants';
 import CustomButton from './CustomButton'
 import { useStateContext } from '../context';
-import Address from './Address'
+import Search from './Search'
 
-const Navbar = (isLoading) => {
+
+const Navbar = (isLoading, campaigns, campaign, title ) => {
   const navigate = useNavigate();
   const [isActive, setIsActive] = useState('dashboard');
   const [toggleDrawer, setToggleDrawer] = useState(false);
   const { connect, address } = useStateContext();
+  const [input, setInput] = useState("")
+  const [hover, setHover] = useState(false)
+  const addresss = `${address}`
+
+  const handleChange= (e)=>{
+    setInput(e.target.value)
+    console.log(input)
+  }
 
   return (
     <Wrapper>
 
       <div className="box">
         <div className="main">
-                <img src={logo} alt="" id='logomain'/>
-  
+          <input type="text" onChange={handleChange} /> <img src={search} className='search' alt="" />
+         
         </div>
       </div>
       
@@ -40,16 +49,22 @@ const Navbar = (isLoading) => {
       </div>
        <div className="box2">
 
-       {/* <Link to ='/profile'> */}
-        <div className='user'>
-       <img src={address ? `${user}` : `${loader}`} alt="" className='userImg' />
-          <div className="user2">{address}</div>
+       <Link to ='/profile'>
+        <div className='user' onMouseEnter={()=>{setHover(true)}} onMouseLeave={()=>{setHover(false)}}>
+          <img src={address ? `${user}` : `${loader}`} alt="" className='userImg' />
+          <div className="user2">{addresss.length > 5 ? `${addresss.slice(0, 6)}...${addresss.slice(-5)}` : 'addresss'} </div>
+          
+          
+          
         </div>
+
+
+       </Link>
+
+       {/* {address ? (hover && <div className="walletDetail">
+                 <h5>View Balance</h5> 
+          </div>) : ("")} */}
        
-       {/* </Link> */} 
-       <div className="walletDetail">
-        jhbh
-       </div>
        </div>
 
        
@@ -72,16 +87,28 @@ justify-content: center;
 align-items: center;
 font-family: Arial, Helvetica, sans-serif;
 text-decoration: none;
+padding-top: 10px;
 
 .walletDetail{
   position: absolute;
-  border-style: solid;
-  right: 50px;
-  opacity: 0;
+  border-style: none;
+  border-radius: 10px;
+  right: 200px;
+  top: 60px;
+  opacity: 1;
+  visibility: visible;
+  height: 80px;
+  width: 100px;
+  background: #ffffff;
+  transition: visibility 0s, opacity 0.2s linear;
+  display: flex  ;
+  justify-content: center;
 }
 
 .walletDetail:hover{
 opacity: 1;
+visibility: visible;
+
 }
 
 .box{
@@ -89,12 +116,14 @@ opacity: 1;
  justify-content: center;
 }
 .main{
-  width: 20px;
+  width: 200px;
   height: 20px;
-  border-radius: 5px;
+  border-radius: 50px;
   padding: 10px;
   background: #ffffff;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  display: flex;
+  align-items: center;
+  /* box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px; */
 }
 #logomain{
   width: 20px;
@@ -106,12 +135,17 @@ opacity: 1;
 }
 
 input{
-  background-color: #2c2c2c;
+  background-color: #ffffff;
   border-style:none;
   border-radius: 5px;
   outline: none;
+  
 
  
+}
+.search{
+  height: 20px;
+  width: 20px;
 }
 
 .imgDiv{
@@ -147,7 +181,10 @@ input{
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  /* box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px; */
+}
+
+.user:hover{
 }
 
 .userImg{
@@ -158,6 +195,13 @@ input{
 }
 
 .user2{
+  padding-left: 8px;
+  text-decoration: none;
+}
+
+a{
+  text-decoration: none;
+  color: black;
 }
 
 `

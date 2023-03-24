@@ -6,7 +6,7 @@ import { money } from '../assets';
 
 // import { createCampaign } from "../context";
 import { useStateContext } from '../context';
-import { CustomButton, FormField, Loader} from '../components';
+import { CustomButton, FormField, Loader, Navbar, Sidebar} from '../components';
 import { checkIfImage } from '../utils';
 
 const CreateCampaign = () => {
@@ -47,6 +47,10 @@ const CreateCampaign = () => {
 
 
   return (
+    <div>
+      <Sidebar/>
+      <Navbar/>
+      
     <Wrapper>
       
 
@@ -116,6 +120,7 @@ const CreateCampaign = () => {
 
 
     </Wrapper>
+    </div>
   )
 }
 
@@ -126,10 +131,11 @@ display: flex;
 justify-content: center;
 align-items: center;
 flex-direction: column;
-margin-top: 50px;
+margin-top: 20px;
 h1{
   color: #1e1e1e;
   font-family: Arial, Helvetica, sans-serif;
+  
 }
 
 
@@ -145,10 +151,10 @@ const Box2 = styled.div`
   display: flex;
   flex-direction: column;
   padding: 20px 50px;
-  background-color: #ecececb4;
+  background-color: #fffffff8;
   border-style: none;
   border-radius: 7px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  /* box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px; */
 
   .field{
   padding: 20px;

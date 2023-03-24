@@ -4,6 +4,7 @@ import { copy } from '../assets';
 import { useStateContext } from '../context';
 import { ethers } from 'ethers';
 import { useBalance } from '@thirdweb-dev/react';
+import { Sidebar, Navbar } from '../components';
  
 
 
@@ -48,14 +49,18 @@ const Profile = () => {
 
 
   return (
+  <div>
+  <Sidebar/>
+         <Navbar/>
     <Wrapper>
- 
+         
       <Box>
         <div className="user">
           <div className="account">Account</div>
           <div className="address" onClick={handleCopy}>  
           {/* {text ? (`${address}` ) : ("Connect Wallet")}   ;        */}
-          {text.length > 5 ? `${text.slice(0, 6)}...${text.slice(-2)}` : text}
+          {text && text.length > 5 ? (`${text.slice(0, 6)}...${text.slice(-2)}`) : (text ? text : "lkhlih")}
+
           <img src={copy} alt="" id='copy'/> 
           {show && (<div className='copy'>Copied</div>)}
 
@@ -71,6 +76,7 @@ const Profile = () => {
 
       </Box>
     </Wrapper>
+    </div>
   )   
 }
 
